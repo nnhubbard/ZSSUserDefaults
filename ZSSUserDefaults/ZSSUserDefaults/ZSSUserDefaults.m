@@ -69,19 +69,24 @@
     
     // Setup the unsaved dictionary
     self.cachedDefaults = [NSMutableDictionary dictionaryWithDictionary:[self dictionary]];
+    self.defaults = [NSMutableDictionary dictionaryWithDictionary:[self dictionary]];
     
 }
 
 - (void)synchronizeChanges {
     
-    if (self.cachedDefaults) {
-        if (self.debug) {
-            NSLog(@"%@ \n%@", [self filePath], self.cachedDefaults);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+       
+        if (self.cachedDefaults) {
+            if (self.debug) {
+                NSLog(@"%@ \n%@", [self filePath], self.cachedDefaults);
+            }
+            [self.cachedDefaults writeToFile:[self filePath] atomically:YES];
         }
-        [self.cachedDefaults writeToFile:[self filePath] atomically:YES];
-    }
-    
-    self.cachedDefaults = [NSMutableDictionary dictionaryWithDictionary:[self dictionary]];
+        
+        self.cachedDefaults = [NSMutableDictionary dictionaryWithDictionary:[self dictionary]];
+        
+    });
     
 }
 

@@ -248,6 +248,30 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="flj-HT-YGV">
+                                        <rect key="frame" x="0.0" y="288" width="600" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="flj-HT-YGV" id="rOJ-Rr-OOA">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Some default text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="itf-et-K4O">
+                                                    <rect key="frame" x="8" y="13" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="didChangeTextField:" destination="nuo-xb-i51" eventType="editingChanged" id="tOV-ja-w5N"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="itf-et-K4O" secondAttribute="bottom" constant="4" id="5ao-3c-tfb"/>
+                                                <constraint firstItem="itf-et-K4O" firstAttribute="top" secondItem="rOJ-Rr-OOA" secondAttribute="topMargin" constant="5" id="QFZ-bw-GBM"/>
+                                                <constraint firstItem="itf-et-K4O" firstAttribute="leading" secondItem="rOJ-Rr-OOA" secondAttribute="leadingMargin" id="SdC-0Z-Qd1"/>
+                                                <constraint firstItem="itf-et-K4O" firstAttribute="trailing" secondItem="rOJ-Rr-OOA" secondAttribute="trailingMargin" id="xRJ-bN-B2C"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -262,6 +286,7 @@
                         <outlet property="option3Switch" destination="ONf-00-xZY" id="gx7-fL-Q0Z"/>
                         <outlet property="slider" destination="hnj-Kr-11j" id="b8M-1t-GDD"/>
                         <outlet property="sliderTextLabel" destination="6Pv-c3-67Y" id="era-h2-oR0"/>
+                        <outlet property="textField" destination="itf-et-K4O" id="v3r-Fv-M0R"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fj3-m8-fNE" userLabel="First Responder" sceneMemberID="firstResponder"/>

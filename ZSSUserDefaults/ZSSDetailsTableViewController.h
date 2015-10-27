@@ -41,6 +41,11 @@
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 
 /**
+ *  Text Field
+ */
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+/**
  *  Toggled Swithc
  *
  *  @param sender UISwitch
@@ -53,5 +58,12 @@
  *  @param sender UISlider
  */
 - (IBAction)didChangeSlider:(UISlider *)sender;
+
+/**
+ *  Changed Text Field
+ *
+ *  @param sender UITextField
+ */
+- (IBAction)didChangeTextField:(UITextField *)sender;
 
 @end

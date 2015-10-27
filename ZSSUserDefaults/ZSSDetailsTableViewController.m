@@ -19,8 +19,9 @@
     
     // Setup Defaults
     ZSSUserDefaults *defaults = [ZSSUserDefaults standardUserDefaults];
-    [defaults setUser:@"my_username"];
-    [defaults registerDefaults:@{@"option1": @(YES)}];
+    [defaults setUser:self.user];
+    [defaults registerDefaults:@{@"option1": @(YES),
+                                 @"text": self.user}];
     
     // Options
     self.option1Switch.on = [defaults boolForKey:@"option1"];
@@ -30,6 +31,9 @@
     // Slider
     self.slider.value = [defaults floatForKey:@"slider"];
     self.sliderTextLabel.text = [NSString stringWithFormat:@"%0.f", self.slider.value];
+    
+    // Text Field
+    self.textField.text = [defaults objectForKey:@"text"];
     
 }
 
@@ -68,6 +72,12 @@
     
     self.sliderTextLabel.text = [NSString stringWithFormat:@"%0.f", sender.value];
     [[ZSSUserDefaults standardUserDefaults] setFloat:sender.value forKey:@"slider"];
+    
+}
+
+- (IBAction)didChangeTextField:(UITextField *)sender {
+    
+    [[ZSSUserDefaults standardUserDefaults] setObject:sender.text forKey:@"text"];
     
 }
 
