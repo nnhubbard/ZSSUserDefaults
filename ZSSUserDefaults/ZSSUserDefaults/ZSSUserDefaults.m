@@ -105,8 +105,10 @@
 #pragma mark - Read/Write Objects
 
 - (void)setObject:(id)value forKey:(NSString *)defaultName {
-    [self.cachedDefaults setObject:value forKey:defaultName];
-    [self.defaults setObject:value forKey:defaultName];
+    if (value && defaultName) {
+        [self.cachedDefaults setObject:value forKey:defaultName];
+        [self.defaults setObject:value forKey:defaultName];
+    }
 }
 
 - (id)objectForKey:(NSString *)defaultName {
@@ -116,8 +118,10 @@
 #pragma mark - Read/Write Bool
 
 - (void)setBool:(BOOL)boolValue forKey:(NSString *)defaultName {
-    [self.cachedDefaults setObject:@(boolValue) forKey:defaultName];
-    [self.defaults setObject:@(boolValue) forKey:defaultName];
+    if (defaultName) {
+        [self.cachedDefaults setObject:@(boolValue) forKey:defaultName];
+        [self.defaults setObject:@(boolValue) forKey:defaultName];
+    }
 }
 
 - (BOOL)boolForKey:(NSString *)defaultName {
@@ -127,8 +131,10 @@
 #pragma mark - Read/Write float
 
 - (void)setFloat:(float)value forKey:(NSString *)defaultName {
-    [self.cachedDefaults setObject:@(value) forKey:defaultName];
-    [self.defaults setObject:@(value) forKey:defaultName];
+    if (defaultName) {
+        [self.cachedDefaults setObject:@(value) forKey:defaultName];
+        [self.defaults setObject:@(value) forKey:defaultName];
+    }
 }
 
 - (float)floatForKey:(NSString *)defaultName {
@@ -139,8 +145,10 @@
 #pragma mark - Read/Write Integer
 
 - (void)setInteger:(NSInteger)value forKey:(NSString *)defaultName {
-    [self.cachedDefaults setObject:@(value) forKey:defaultName];
-    [self.defaults setObject:@(value) forKey:defaultName];
+    if (defaultName) {
+        [self.cachedDefaults setObject:@(value) forKey:defaultName];
+        [self.defaults setObject:@(value) forKey:defaultName];
+    }
 }
 
 - (NSInteger)integerForKey:(NSString *)defaultName {
@@ -151,8 +159,10 @@
 #pragma mark - Read/Write Double
 
 - (void)setDouble:(double)value forKey:(NSString *)defaultName {
-    [self.cachedDefaults setObject:@(value) forKey:defaultName];
-    [self.defaults setObject:@(value) forKey:defaultName];
+    if (defaultName) {
+        [self.cachedDefaults setObject:@(value) forKey:defaultName];
+        [self.defaults setObject:@(value) forKey:defaultName];
+    }
 }
 
 - (double)doubleForKey:(NSString *)defaultName {
