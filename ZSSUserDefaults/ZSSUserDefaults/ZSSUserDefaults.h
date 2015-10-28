@@ -129,4 +129,11 @@
  */
 - (double)doubleForKey:(NSString *)defaultName;
 
+/**
+ *  Remove object for key
+ *
+ *  @param defaultName Key
+ */
+- (void)removeObjectForKey:(NSString *)defaultName;
+
 @end

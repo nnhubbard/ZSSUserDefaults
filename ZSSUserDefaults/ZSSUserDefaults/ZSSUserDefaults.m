@@ -159,4 +159,12 @@
     return [[self.defaults objectForKey:defaultName] doubleValue];
 }
 
+#pragma mark - Remove object
+
+- (void)removeObjectForKey:(NSString *)defaultName {
+    if ([self.defaults objectForKey:defaultName]) {
+        [self.defaults removeObjectForKey:defaultName];
+    }
+}
+
 @end
